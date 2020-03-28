@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
   "connection": "default",
-  "collectionName": "tags",
+  "collectionName": "authors",
   "info": {
-    "name": "Tag"
+    "name": "author"
   },
   "options": {
     "increments": true,
@@ -12,18 +12,22 @@
   "attributes": {
     "name": {
       "type": "string",
-      "unique": true,
+      "unique": false,
       "required": true
     },
-    "posts": {
-      "via": "tags",
-      "collection": "post 2"
+    "description": {
+      "type": "richtext",
+      "required": true
     },
     "image": {
       "model": "file",
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "posts": {
+      "via": "author",
+      "collection": "post 2"
     }
   }
 }

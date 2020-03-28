@@ -17,7 +17,7 @@
     },
     "posts": {
       "via": "tags",
-      "collection": "post 2"
+      "collection": "post"
     },
     "image": {
       "model": "file",

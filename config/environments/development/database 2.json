@@ -1,0 +1,20 @@
+{
+  "defaultConnection": "default",
+  "connections": {
+    "default": {
+      "connector": "mongoose",
+      "settings": {
+        "database": "test",
+        "host": "cluster0-mqm3d.gcp.mongodb.net",
+        "srv": "true",
+        "port": 27017,
+        "username": "lucas123ho",
+        "password": "c4vgjJ04rMqIBC1v"
+      },
+      "options": {
+        "authenticationDatabase": "",
+        "ssl": true
+      }
+    }
+  }
+}

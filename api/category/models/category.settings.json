@@ -17,7 +17,7 @@
     },
     "posts": {
       "via": "category",
-      "collection": "post"
+      "collection": "post 2"
     },
     "image": {
       "model": "file",

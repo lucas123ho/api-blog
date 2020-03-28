@@ -531,15 +531,16 @@
             "items": {
               "required": [
                 "id",
-                "Title",
+                "title",
                 "content",
-                "image"
+                "image",
+                "description"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "Title": {
+                "title": {
                   "type": "string"
                 },
                 "content": {
@@ -559,6 +560,12 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "description": {
+                  "type": "string"
+                },
+                "author": {
+                  "type": "string"
                 }
               }
             }

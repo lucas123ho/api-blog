@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/categories": {
+    "/authors": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Category"
+                    "$ref": "#/components/schemas/Author"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Author"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Author"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Author"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategory"
+                "$ref": "#/components/schemas/NewAuthor"
               }
             }
           }
         }
       }
     },
-    "/categories/count": {
+    "/authors/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Author"
         ],
         "parameters": []
       }
     },
-    "/categories/{id}": {
+    "/authors/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Author"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Author"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Author"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Author"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategory"
+                "$ref": "#/components/schemas/NewAuthor"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Author"
         ],
         "parameters": [
           {
@@ -514,10 +514,11 @@
   },
   "components": {
     "schemas": {
-      "Category": {
+      "Author": {
         "required": [
           "id",
-          "name"
+          "name",
+          "description"
         ],
         "properties": {
           "id": {
@@ -526,49 +527,8 @@
           "name": {
             "type": "string"
           },
-          "posts": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "title",
-                "content",
-                "image",
-                "description"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "content": {
-                  "type": "string"
-                },
-                "image": {
-                  "type": "string"
-                },
-                "input": {
-                  "type": "datetime"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "tags": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "description": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "string"
-                }
-              }
-            }
+          "description": {
+            "type": "string"
           },
           "image": {
             "required": [
@@ -615,15 +575,63 @@
                 "type": "string"
               }
             }
+          },
+          "posts": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "title",
+                "content",
+                "image",
+                "description"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "input": {
+                  "type": "datetime"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "description": {
+                  "type": "string"
+                },
+                "author": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
-      "NewCategory": {
+      "NewAuthor": {
         "required": [
-          "name"
+          "name",
+          "description"
         ],
         "properties": {
           "name": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "posts": {
@@ -638,7 +646,7 @@
   },
   "tags": [
     {
-      "name": "Category"
+      "name": "Author"
     }
   ]
 }

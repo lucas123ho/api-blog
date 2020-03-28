@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/categories": {
+    "/posts": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Category"
+                    "$ref": "#/components/schemas/Post"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Post"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Post"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Post"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategory"
+                "$ref": "#/components/schemas/NewPost"
               }
             }
           }
         }
       }
     },
-    "/categories/count": {
+    "/posts/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Post"
         ],
         "parameters": []
       }
     },
-    "/categories/{id}": {
+    "/posts/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Post"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Post"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Post"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Post"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategory"
+                "$ref": "#/components/schemas/NewPost"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Post"
         ],
         "parameters": [
           {
@@ -514,61 +514,24 @@
   },
   "components": {
     "schemas": {
-      "Category": {
+      "Post": {
         "required": [
           "id",
-          "name"
+          "Title",
+          "content",
+          "image"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "name": {
-            "type": "string"
+          "Title": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 5
           },
-          "posts": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "title",
-                "content",
-                "image",
-                "description"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "content": {
-                  "type": "string"
-                },
-                "image": {
-                  "type": "string"
-                },
-                "input": {
-                  "type": "datetime"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "tags": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "description": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "string"
-                }
-              }
-            }
+          "content": {
+            "type": "string"
           },
           "image": {
             "required": [
@@ -615,18 +578,82 @@
                 "type": "string"
               }
             }
+          },
+          "input": {
+            "type": "datetime"
+          },
+          "category": {
+            "required": [
+              "id",
+              "name"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "posts": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "image": {
+                "type": "string"
+              }
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "posts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "image": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
-      "NewCategory": {
+      "NewPost": {
         "required": [
-          "name"
+          "Title",
+          "content"
         ],
         "properties": {
-          "name": {
+          "Title": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 5
+          },
+          "content": {
             "type": "string"
           },
-          "posts": {
+          "input": {
+            "type": "datetime"
+          },
+          "category": {
+            "type": "string"
+          },
+          "tags": {
             "type": "array",
             "items": {
               "type": "string"
@@ -638,7 +665,7 @@
   },
   "tags": [
     {
-      "name": "Category"
+      "name": "Post"
     }
   ]
 }

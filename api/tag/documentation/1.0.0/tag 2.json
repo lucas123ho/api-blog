@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/categories": {
+    "/tags": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Category"
+                    "$ref": "#/components/schemas/Tag"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Tag"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Tag"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Tag"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategory"
+                "$ref": "#/components/schemas/NewTag"
               }
             }
           }
         }
       }
     },
-    "/categories/count": {
+    "/tags/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Tag"
         ],
         "parameters": []
       }
     },
-    "/categories/{id}": {
+    "/tags/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Tag"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Tag"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/Tag"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Tag"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCategory"
+                "$ref": "#/components/schemas/NewTag"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Category"
+          "Tag"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Category": {
+      "Tag": {
         "required": [
           "id",
           "name"
@@ -531,16 +531,15 @@
             "items": {
               "required": [
                 "id",
-                "title",
+                "Title",
                 "content",
-                "image",
-                "description"
+                "image"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "title": {
+                "Title": {
                   "type": "string"
                 },
                 "content": {
@@ -560,12 +559,6 @@
                   "items": {
                     "type": "string"
                   }
-                },
-                "description": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "string"
                 }
               }
             }
@@ -618,7 +611,7 @@
           }
         }
       },
-      "NewCategory": {
+      "NewTag": {
         "required": [
           "name"
         ],
@@ -638,7 +631,7 @@
   },
   "tags": [
     {
-      "name": "Category"
+      "name": "Tag"
     }
   ]
 }

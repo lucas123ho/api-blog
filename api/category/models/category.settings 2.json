@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
   "connection": "default",
-  "collectionName": "tags",
+  "collectionName": "categories",
   "info": {
-    "name": "Tag"
+    "name": "Category"
   },
   "options": {
     "increments": true,
@@ -12,12 +12,12 @@
   "attributes": {
     "name": {
       "type": "string",
-      "unique": true,
-      "required": true
+      "required": true,
+      "unique": true
     },
     "posts": {
-      "via": "tags",
-      "collection": "post 2"
+      "via": "category",
+      "collection": "post"
     },
     "image": {
       "model": "file",
