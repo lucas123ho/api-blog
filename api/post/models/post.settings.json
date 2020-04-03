@@ -3,22 +3,17 @@
   "connection": "default",
   "collectionName": "posts",
   "info": {
-    "name": "Post"
+    "name": "post"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true,
-      "maxLength": 50,
-      "minLength": 5
-    },
-    "content": {
-      "type": "richtext",
-      "required": true
+      "unique": true
     },
     "image": {
       "model": "file",
@@ -26,18 +21,25 @@
       "plugin": "upload",
       "required": true
     },
-    "input": {
-      "type": "datetime",
-      "required": false
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
     },
     "category": {
       "model": "category",
       "via": "posts"
     },
     "tags": {
-      "collection": "tag",
+      "collection": "tags",
       "via": "posts",
       "dominant": true
+    },
+    "author": {
+      "model": "author"
     }
   }
 }

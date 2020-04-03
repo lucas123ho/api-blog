@@ -4,7 +4,7 @@
     "default": {
       "connector": "mongoose",
       "settings": {
-        "database": "test",
+        "database": "holy_javascript",
         "host": "cluster0-mqm3d.gcp.mongodb.net",
         "srv": "true",
         "port": 27017,

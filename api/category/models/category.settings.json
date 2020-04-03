@@ -3,7 +3,7 @@
   "connection": "default",
   "collectionName": "categories",
   "info": {
-    "name": "Category"
+    "name": "category"
   },
   "options": {
     "increments": true,
@@ -15,15 +15,15 @@
       "required": true,
       "unique": true
     },
-    "posts": {
-      "via": "category",
-      "collection": "post 2"
-    },
     "image": {
       "model": "file",
       "via": "related",
       "plugin": "upload",
-      "required": false
+      "required": true
+    },
+    "posts": {
+      "via": "category",
+      "collection": "post"
     }
   }
 }
